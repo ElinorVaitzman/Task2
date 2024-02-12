@@ -7,12 +7,12 @@ menuIcon.onclick = () => {
   navbar.classList.toggle("active");
 };
 
-// sticky header
-// window.onscroll = () => {
-let header = document.querySelector("header");
-header.classList.toggle("sticky", window.scrollY > 100);
-// };
-
-// removes toggle icon and navbar when click navbar links
+// removes toggle icon and navbar when clicking on navbar links
 menuIcon.classList.remove("bx-x");
 navbar.classList.remove("active");
+
+// sticky header JS code for showing understaning
+// window.onscroll = () => {
+// let header = document.querySelector("header");
+// header.classList.toggle("sticky", window.scrollY > 100);
+// };

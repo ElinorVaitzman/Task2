@@ -19,17 +19,29 @@ html {
 }
 
 body {
+  padding-bottom: 0;
+  min-height: 100vh;
+  background-position: center;
+}
+
+#about-body,
+#resume-body {
+  background: #031540;
+  color: #fbfaf9;
+}
+
+#home-body,
+#projects-body {
   background: #fbfaf9;
   color: #031540;
-  padding-bottom: 0;
 }
 
 section {
-  min-height: 100vh;
   padding: 10rem 9% 0rem;
 }
 
 /* header */
+/* making the navbar sticky with CSS */
 .header {
   position: fixed;
   top: 0;
@@ -65,19 +77,7 @@ section {
 .navbar a:hover,
 .navbar a.active {
   color: #019ad0;
-  /* transform: scale(1.05); */
 }
-
-/* .navbar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  z-index: 1000;
-} */
 
 #menu-icon {
   font-size: 3.6rem;
@@ -109,7 +109,6 @@ section {
 
 .home-img {
   display: flex;
-  text-align: center;
 }
 
 .home-img img {
@@ -211,7 +210,7 @@ section {
   justify-content: center;
   align-items: center;
   align-content: center;
-  gap: 40px;
+  gap: 20px;
   background: url(./portfolio-images/wave5.png) no-repeat, #031540;
   color: #fbfaf9;
   background-position: left;
@@ -226,27 +225,28 @@ section {
   color: #fbfaf9;
 }
 
+.about-img {
+  display: flex;
+}
+
 .about-img img {
   width: 55vh;
   height: auto;
-  margin-bottom: -15px;
+  max-width: 380px;
 }
 
 .heading {
   text-align: center;
   font-size: 36px;
+  line-height: 1.2;
 }
 .about-content {
   background: #031540;
 }
 
-.about-content h2 {
-  text-align: center;
-  line-height: 1.2;
-}
-
 .about-content h3 {
   font-size: 24px;
+  text-align: center;
 }
 
 .about-content p {
@@ -261,7 +261,8 @@ section {
   position: relative;
   display: flex;
   justify-content: center;
-  width: 72.5rem;
+  align-items: center;
+  width: 100%;
   height: 4rem;
 }
 
@@ -721,12 +722,12 @@ a#btn-download.btn {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 65%;
-  height: 350px;
+  width: 50%;
+  height: 300px;
   margin-bottom: 35px;
   gap: 20px;
   background: #019ad0;
-  border-radius: 6rem;
+  border-radius: 4px;
   box-shadow: 0 0 10px #019ad0;
   overflow: hidden;
 }
@@ -734,19 +735,16 @@ a#btn-download.btn {
 .projects-header h1 {
   color: #031540;
   text-align: center;
-  font-size: 40px;
-  margin-top: 10px;
+  font-size: 36px;
+  margin-top: 100px;
+  margin-bottom: 10px;
 }
 
 .project-box h3 {
   text-align: center;
+  font-size: 26px;
 }
 
-.project-box i {
-  font-size: 50px;
-  color: var(--first-color);
-  margin-bottom: 15px;
-}
 .project-box label {
   display: flex;
   justify-content: center;
@@ -756,19 +754,50 @@ a#btn-download.btn {
   color: #031540;
 }
 .btn-project {
-  display: flex;
-  gap: 20px;
-  background: transparent;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: #019ad0;
+  border: none;
+  color: #fbfaf9;
+  text-align: center;
+  font-size: 20px;
+  padding: 20px;
+  width: 100%;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
 }
-.btn-project:hover {
-  color: #031540;
-  background: #fbfaf9;
+
+.btn-project span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.btn-project span:after {
+  content: "\00bb";
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.btn-project:hover span {
+  padding-right: 25px;
+}
+
+.btn-project:hover span:after {
+  opacity: 1;
+  right: 0;
 }
 
 /* Media queries for responsiveness */
 /* CSS breakpoints */
 
 @media (max-width: 1200px) {
+  /* GENERAL */
   html {
     font-size: 55%;
   }
@@ -776,33 +805,60 @@ a#btn-download.btn {
     padding: 3rem 2rem;
   }
 
+  /* HOME PAGE */
   .home-img img {
-    margin-top: 10%;
+    margin-top: 80px;
   }
 
+  /* ABOUT PAGE */
+  .about {
+    margin-top: 100px;
+    gap: 15px;
+  }
   .about-img img {
     width: 55vh;
     height: auto;
-    margin-bottom: -4px;
+    margin-bottom: -26px;
+  }
+
+  a#btn-download.btn {
+    font-size: 12px;
+    letter-spacing: 0;
+  }
+
+  /* RESUME PAGE */
+  .resume h1 {
+    margin-top: 75px;
   }
 }
 
 @media (max-width: 1035px) {
+  /* HOME PAGE */
   .home {
     background: #fbfaf9;
     justify-content: center;
     align-content: center;
   }
+
+  /* ABOUT PAGE */
+  .about-img img {
+    margin-bottom: -43px;
+  }
 }
 
 @media (max-width: 1024px) {
+  /* HOME PAGE */
   .home-content {
     text-align: center;
   }
 
-  .resume h1 {
-    margin-top: 75px;
+  .home-img img {
+    margin-top: 80px;
   }
+
+  /* ABOUT PAGE */
+
+  /* RESUME PAGE */
 
   .education-section,
   .skills-header {
@@ -811,6 +867,7 @@ a#btn-download.btn {
 }
 
 @media (max-width: 991px) {
+  /* HOME PAGE */
   .header {
     padding: 2rem 3%;
   }
@@ -824,36 +881,81 @@ a#btn-download.btn {
     padding: 10rem 3% 2rem;
   }
 
+  /* ABOUT PAGE */
   .about {
     background: #031540;
-    margin-top: 50px;
   }
 
+  /* RESUME PAGE */
   .skills-container {
     grid-template-columns: repeat(2, 1fr);
     padding: 2rem 50px;
   }
 
+  /* FOOTER */
   .footer {
     padding: 2rem 3%;
   }
 }
 
 @media (max-width: 768px) {
+  /* GENERAL */
   #menu-icon {
     display: block;
   }
 
+  /* HOME PAGE */
+  .home {
+    justify-content: center;
+    gap: 2rem;
+  }
+
+  .home-img img {
+    border-radius: 50%;
+    width: 30rem;
+    background-position: -110px -110px;
+    margin-top: 100px;
+  }
+
+  .home-content {
+    text-align: center;
+
+    h1 {
+      font-size: 3rem;
+    }
+
+    h3 {
+      font-size: 2rem;
+    }
+  }
+
+  .home-social-icon {
+    justify-content: center;
+    align-items: center;
+    margin-left: -30px;
+  }
+
+  .home-social-icon a {
+    width: 39px;
+    height: 38px;
+  }
+
+  /* ABOUT PAGE */
   .about {
     flex-direction: column;
     text-align: center;
-    display: flex;
+    padding: 2rem;
   }
 
+  .about-img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
   .about-img img {
-    width: 40%;
-    margin-bottom: 30px;
-    border-radius: 40%;
+    margin-bottom: 0;
+    border-radius: 45%;
+    width: 50%;
   }
 
   .about-content {
@@ -862,12 +964,11 @@ a#btn-download.btn {
     align-items: center;
     flex-direction: column;
     text-align: center;
-    padding: 10px;
+    padding: 0;
   }
 
   div.about-content h2 {
     font-size: 30px;
-    /* margin-top: -15px; */
   }
 
   .about-content p {
@@ -884,14 +985,15 @@ a#btn-download.btn {
   }
 
   a#btn-download.btn {
-    font-size: 9px;
+    font-size: 12px;
+    letter-spacing: 0;
   }
 
   .btn-box .btn {
     margin-bottom: 15px;
-    width: 30%;
   }
 
+  /* NAVBAR */
   .navbar {
     position: absolute;
     top: 100%;
@@ -946,51 +1048,47 @@ a#btn-download.btn {
     transform: translateX(0);
     transition-delay: 0.25s;
   }
-
-  .home {
-    justify-content: center;
-    gap: 2rem;
+  /* RESUME PAGE */
+  .resume h1 {
+    margin-top: 20px;
   }
 
-  .home-img img {
-    border-radius: 50%;
-    width: 30rem;
-    background-position: -110px -110px;
-    margin-top: 100px;
+  /*PROJECTS PAGE */
+  .projects-header h1 {
+    margin-top: 50px;
+  }
+}
+
+@media (max-width: 600px) {
+  /* GENERAL */
+  html {
+    font-size: 50%;
   }
 
-  .home-content {
-    text-align: center;
+  /* ABOUT PAGE */
 
-    h1 {
-      font-size: 3rem;
-    }
-
-    h3 {
-      font-size: 2rem;
-    }
+  .about-img img {
+    width: 80%;
   }
 
-  .home-social-icon {
-    justify-content: center;
-    align-items: center;
-    margin-left: -30px;
+  .about-content h2 {
+    font-size: 26px;
   }
 
-  .home-social-icon a {
-    width: 39px;
-    height: 38px;
+  .about-content p {
+    font-size: 13px;
   }
 
   .about-img img {
     width: 50%;
   }
-}
 
-@media (max-width: 600px) {
-  html {
-    font-size: 50%;
+  a#btn-download.btn {
+    font-size: 10px;
+    letter-spacing: 0.1rem;
   }
+
+  /* RESUME PAGE */
   .timeline {
     margin: 50px auto;
   }
@@ -1031,7 +1129,7 @@ a#btn-download.btn {
   }
 
   .resume h1 {
-    margin-top: 50px;
+    margin-top: 20px;
     font-size: 28px;
   }
 
@@ -1046,29 +1144,15 @@ a#btn-download.btn {
   .skills-header {
     margin-top: -15%;
   }
-
-  .about-img img {
-    width: 80%;
-  }
-
-  .about-content h2 {
-    font-size: 26px;
-  }
-
-  .about-content p {
-    font-size: 13px;
-  }
-
-  .about-img img {
-    width: 50%;
-  }
 }
 
 @media (max-width: 462px) {
+  /* GENERAL */
   html {
     font-size: 50%;
   }
 
+  /* HOME PAGE */
   .home-content p {
     font-size: 14px;
   }
@@ -1077,10 +1161,7 @@ a#btn-download.btn {
     margin-top: 40%;
   }
 
-  .education-section {
-    padding: 10rem 4% 5rem 5%;
-  }
-
+  /* ABOUT PAGE */
   .about-content h2 {
     font-size: 22px;
   }
@@ -1088,17 +1169,44 @@ a#btn-download.btn {
   .about-content p {
     font-size: 12px;
   }
-}
-@media (max-width: 371px) {
-  .home {
-    justify-content: center;
+
+  /* RESUME PAGE */
+  .education-section {
+    padding: 10rem 4% 5rem 5%;
   }
 
+  /* PROJECTS PAGE */
+  .projects-header h1 {
+    font-size: 30px;
+  }
+
+  .project-box h3 {
+    font-size: 15px;
+  }
+
+  .btn-project span {
+    font-size: 15px;
+  }
+}
+@media (max-width: 376px) {
+  /* HOME PAGE */
+  .home {
+    justify-content: center;
+    margin-bottom: 10%;
+  }
   .home-content {
     display: flex;
     align-items: center;
     flex-direction: column;
     text-align: center;
     padding: 10px;
+  }
+
+  /* ABOUT PAGE */
+  div.about-content h2 {
+    font-size: 30px;
+  }
+  .about-content h3 {
+    font-size: 18px;
   }
 }
